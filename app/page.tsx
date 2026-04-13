@@ -45,7 +45,7 @@ export default function Home() {
           }}
         />
         <div className="relative z-10 flex flex-col items-center gap-10">
-          <div className="relative h-40 w-[480px] max-w-[90vw]">
+          <div className="relative h-[320px] w-full max-w-[90vw]">
             <Image src="/logo.png" alt="Berlin Klein" fill className="object-contain" priority />
           </div>
           <div className="h-px w-20 bg-[#dc2626]" />
