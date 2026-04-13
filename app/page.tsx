@@ -67,6 +67,47 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Schedule */}
+      <section className="border-t border-[#f0f0f0]/5 px-6 py-28">
+        <div className="mx-auto max-w-3xl">
+          <p className="mb-4 text-center text-[10px] uppercase tracking-[0.3em] text-[#dc2626]">Weekly</p>
+          <h2 className="mb-14 text-center text-3xl font-thin uppercase tracking-[0.3em]">Schedule</h2>
+
+          <div className="space-y-px">
+            {[
+              { day: "Monday",    time: "8:00 PM SLT",  dj: "DJ Kael",     genre: "Minimal Techno" },
+              { day: "Wednesday", time: "9:00 PM SLT",  dj: "DJ Vesper",   genre: "Dark Electro" },
+              { day: "Thursday",  time: "7:00 PM SLT",  dj: "DJ Noir",     genre: "Ambient / Deep" },
+              { day: "Friday",    time: "10:00 PM SLT", dj: "DJ Solène",   genre: "House" },
+              { day: "Saturday",  time: "9:00 PM SLT",  dj: "DJ Ravn",     genre: "Industrial" },
+              { day: "Sunday",    time: "6:00 PM SLT",  dj: "DJ Mireille", genre: "Melodic Techno" },
+            ].map((slot) => (
+              <div
+                key={slot.day}
+                className="group flex flex-col gap-1 border border-[#f0f0f0]/5 bg-[#f0f0f0]/[0.02] px-6 py-5 transition-colors hover:border-[#dc2626]/20 hover:bg-[#dc2626]/[0.04] sm:flex-row sm:items-center sm:justify-between"
+              >
+                <div className="flex items-center gap-6">
+                  <span className="w-24 text-[11px] font-medium uppercase tracking-[0.2em] text-[#dc2626]">
+                    {slot.day}
+                  </span>
+                  <span className="text-[11px] uppercase tracking-[0.15em] text-[#f0f0f0]/30">
+                    {slot.time}
+                  </span>
+                </div>
+                <div className="flex items-center gap-6">
+                  <span className="text-[13px] font-light tracking-wide text-[#f0f0f0]/80">
+                    {slot.dj}
+                  </span>
+                  <span className="hidden text-[10px] uppercase tracking-[0.2em] text-[#f0f0f0]/30 sm:block">
+                    {slot.genre}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Visit */}
       <section className="border-t border-[#f0f0f0]/5 px-6 py-28 text-center">
         <div className="mx-auto max-w-xl">
