@@ -134,6 +134,15 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Founder */}
+      <section className="border-t border-[#f0f0f0]/5 px-6 py-20">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="mb-3 text-[10px] uppercase tracking-[0.3em] text-[#dc2626]">Founded by</p>
+          <h2 className="text-2xl font-thin uppercase tracking-[0.4em] text-[#f0f0f0]/90">Erol Biler</h2>
+          <div className="mx-auto mt-6 h-px w-8 bg-[#dc2626]/40" />
+        </div>
+      </section>
+
       {/* Visit */}
       <section className="border-t border-[#f0f0f0]/5 px-6 py-28 text-center">
         <div className="mx-auto max-w-xl">
