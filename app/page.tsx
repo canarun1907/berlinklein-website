@@ -1,8 +1,53 @@
 import Image from "next/image"
 
+function Bird({ style }: { style: React.CSSProperties }) {
+  return (
+    <svg
+      viewBox="0 0 80 60"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      style={style}
+      className="absolute opacity-20 pointer-events-none"
+    >
+      {/* Wings */}
+      <path d="M10 30 Q25 10 40 28 Q55 10 70 30" stroke="#f0f0f0" strokeWidth="1.2" fill="none" />
+      {/* Body */}
+      <path d="M38 28 Q42 35 46 33 Q44 40 38 38 Q32 40 30 33 Q34 35 38 28Z" stroke="#f0f0f0" strokeWidth="0.8" fill="none" />
+      {/* Red dot — eye */}
+      <circle cx="44" cy="31" r="2.5" fill="#dc2626" />
+      {/* Tail */}
+      <path d="M32 37 Q28 45 24 42" stroke="#f0f0f0" strokeWidth="0.8" fill="none" />
+    </svg>
+  )
+}
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0c0c0c] text-[#f0f0f0]">
+    <main className="min-h-screen bg-[#0c0c0c] text-[#f0f0f0] overflow-x-hidden">
+      {/* Floating birds */}
+      <style>{`
+        @keyframes flyRight {
+          0%   { transform: translateX(-120px) translateY(0px) scale(0.8); opacity: 0; }
+          10%  { opacity: 0.2; }
+          90%  { opacity: 0.15; }
+          100% { transform: translateX(calc(100vw + 120px)) translateY(-40px) scale(1); opacity: 0; }
+        }
+        @keyframes flyLeft {
+          0%   { transform: translateX(120px) translateY(0px) scaleX(-1) scale(0.9); opacity: 0; }
+          10%  { opacity: 0.18; }
+          90%  { opacity: 0.12; }
+          100% { transform: translateX(calc(-100vw - 120px)) translateY(30px) scaleX(-1) scale(0.7); opacity: 0; }
+        }
+        .bird-r { animation: flyRight linear infinite; }
+        .bird-l { animation: flyLeft linear infinite; }
+      `}</style>
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <Bird style={{ width: 80,  top: "15%", left: 0,    animation: "flyRight 18s linear 0s infinite"  }} />
+        <Bird style={{ width: 56,  top: "35%", left: "100vw", animation: "flyLeft 22s linear 4s infinite"   }} />
+        <Bird style={{ width: 64,  top: "60%", left: 0,    animation: "flyRight 26s linear 9s infinite"  }} />
+        <Bird style={{ width: 48,  top: "75%", left: "100vw", animation: "flyLeft 20s linear 14s infinite"  }} />
+        <Bird style={{ width: 72,  top: "50%", left: 0,    animation: "flyRight 30s linear 7s infinite"  }} />
+      </div>
 
       {/* Hero */}
       <section className="relative flex min-h-screen flex-col items-center justify-center px-6 text-center">
@@ -29,9 +74,8 @@ export default function Home() {
             Enter
           </a>
         </div>
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30">
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-30">
           <div className="h-8 w-px bg-[#f0f0f0]" />
-          <span className="text-[9px] uppercase tracking-[0.3em]">Scroll</span>
         </div>
       </section>
 
